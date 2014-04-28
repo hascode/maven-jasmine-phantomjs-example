@@ -1,10 +1,18 @@
 describe("the greeting service", function () {
 	var greetingService;
 	
-	beforeEach(greetingService = new GreetingService());
+	beforeEach(function(){
+		greetingService = new GreetingService();
+	});
 
-    it("should load scope", function () {
-    	var greet = greetingService.greet("foo");
+    it("must create a valid greeting", function () {
+        var greet = greetingService.greet("foo");
         expect(greet).toBe("Hello, foo");
+    });
+
+    it("must use an altered greeting", function(){
+        greetingService.greeting = 'Hey';
+        var greet = greetingService.greet("bar");
+        expect(greet).toBe("Hey, bar");
     });
 });
