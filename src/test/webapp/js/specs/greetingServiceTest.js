@@ -15,4 +15,9 @@ describe("the greeting service", function () {
         var greet = greetingService.greet("bar");
         expect(greet).toBe("Hey, bar");
     });
+    
+    it("must use fallback if no name given", function(){
+    	var greet = greetingService.greet();
+    	expect(greet).toBe("This test will be failing");
+    });
 });
